@@ -8,7 +8,7 @@
     "preview": "nuxt preview",
     "build:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt build",
     "generate:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt generate",
-    "deploy": "push-dir --dir=dist --branch=main --cleanup",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
     "lint.fix": "eslint . --fix",
