@@ -6,6 +6,12 @@ const nuxtBackground = {
   '-webkit-background-clip': 'text',
   '-webkit-text-fill-color': 'transparent',
 }
+
+const tmdbBackground = {
+  'background': '-webkit-linear-gradient(#1c92d2, #f2fcfe)',
+  '-webkit-background-clip': 'text',
+  '-webkit-text-fill-color': 'transparent',
+}
 </script>
 
 <template>
@@ -21,7 +27,7 @@ const nuxtBackground = {
       </NuxtLink>
     </p>
     <p class="mt-4 text-sm text-gray-500">
-      Data provided by <NuxtLink to="https://www.themoviedb.org/" alt="TMDB" class="text-md text-cyan-500 tracking-widest font-blod border-dotted border-b-2 border-cyan-500 hover:border-cyan-200 hover:text-cyan-200">
+      Data provided by <NuxtLink to="https://www.themoviedb.org/" alt="TMDB" class="text-md tracking-widest font-blod " :style="tmdbBackground">
         TMDB
       </NuxtLink>
     </p>
