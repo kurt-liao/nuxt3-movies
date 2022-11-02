@@ -1,4 +1,4 @@
-const isPages = process.env.DEPLOY_ENV === 'GH_PAGES'
+const isDev = process.env.NODE_ENV === 'development'
 
 export default defineNuxtConfig({
   modules: [
@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     '~/assets/styles/index.css',
   ],
   router: {
-    base: isPages ? '/nuxt3-movies/' : '',
+    base: !isDev ? '/nuxt3-movies/' : '',
   },
+  target: 'static',
 })
