@@ -6,7 +6,7 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup",
+    "deploy": "gh-pages -d dist",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
     "lint.fix": "eslint . --fix",
