@@ -1,5 +1,3 @@
-const isDev = process.env.NODE_ENV === 'development'
-
 export default defineNuxtConfig({
   modules: [
     '@pinia/nuxt',
@@ -12,7 +10,7 @@ export default defineNuxtConfig({
     '~/assets/styles/index.css',
   ],
   router: {
-    base: !isDev ? '/nuxt3-movies/' : '',
+    base: '/nuxt3-movies/',
   },
   target: 'static',
 })
