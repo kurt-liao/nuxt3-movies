@@ -1,5 +1,7 @@
 # nuxt3-movies
 
+> NOTE: This project is still in progress, so some of pages are not done yet.
+
 Movies and TV Shows app built with [Nuxt3](https://v3.nuxtjs.org/) & [Vue3](https://vuejs.org/) & [Tailwindcss](https://tailwindcss.com/) & [TMDB](https://www.themoviedb.org/) and [TypeScript](https://www.typescriptlang.org/).
 
 ## Quick look
