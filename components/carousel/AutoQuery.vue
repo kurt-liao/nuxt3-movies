@@ -13,9 +13,9 @@ const { results } = await $fetch('/api/list', {
   <div>
     <MediaTitle :title="params.title" :more-link="`/${params.type}/category/${params.category}`" />
     <ContainerScroll>
-      <MediaGrid>
-        <MediaCard v-for="item in results" :key="item.id" :type="params.type" :item="item" />
-      </MediaGrid>
+      <div class="flex gap-2 w-max p-2 px-10">
+        <MediaCard v-for="item in results" :key="item.id" :type="params.type" :item="item" class="w-60" />
+      </div>
     </ContainerScroll>
   </div>
 </template>

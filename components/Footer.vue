@@ -7,8 +7,20 @@ const nuxtBackground = {
   '-webkit-text-fill-color': 'transparent',
 }
 
+const tailwindBackground = {
+  'background': '-webkit-linear-gradient(#00F260, #0575E6)',
+  '-webkit-background-clip': 'text',
+  '-webkit-text-fill-color': 'transparent',
+}
+
+const tsBackground = {
+  'background': '-webkit-linear-gradient(#56CCF2, #2F80ED)',
+  '-webkit-background-clip': 'text',
+  '-webkit-text-fill-color': 'transparent',
+}
+
 const tmdbBackground = {
-  'background': '-webkit-linear-gradient(#1c92d2, #f2fcfe)',
+  'background': '-webkit-linear-gradient(#85CCA5, #3DB5E2)',
   '-webkit-background-clip': 'text',
   '-webkit-text-fill-color': 'transparent',
 }
@@ -22,12 +34,26 @@ const tmdbBackground = {
         to="https://v3.nuxtjs.org/" alt="Nuxt3" :style="nuxtBackground"
       >
         <Icon icon="vscode-icons:file-type-nuxt" class="inline w-6 h-6 mb-2" />
-        <span class="font-bold text-lg"> Nuxt</span>
+        <span class="font-bold text-lg">Nuxt</span>
         <span class="font-bold text-lg"> 3</span>
+      </NuxtLink>
+      <span class="p-2">·</span>
+      <NuxtLink
+        to="https://tailwindcss.com/" alt="Tailwindcss" :style="tailwindBackground"
+      >
+        <Icon icon="vscode-icons:file-type-tailwind" class="inline w-6 h-6 mb-2" />
+        <span class="font-bold text-lg">Tailwindcss</span>
+      </NuxtLink>
+      <span class="p-2">·</span>
+      <NuxtLink
+        to="https://www.typescriptlang.org/" alt="TypeScript" :style="tsBackground"
+      >
+        <Icon icon="logos:typescript-icon-round" class="inline w-6 h-6 mb-2" />
+        <span class="font-bold text-lg">TypeScript</span>
       </NuxtLink>
     </p>
     <p class="mt-4 text-sm text-gray-500">
-      Data provided by <NuxtLink to="https://www.themoviedb.org/" alt="TMDB" class="text-md tracking-widest font-blod " :style="tmdbBackground">
+      Data provided by <NuxtLink to="https://www.themoviedb.org/" alt="TMDB" class="text-md tracking-widest font-bold " :style="tmdbBackground">
         TMDB
       </NuxtLink>
     </p>

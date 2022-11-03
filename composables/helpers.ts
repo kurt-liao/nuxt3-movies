@@ -5,3 +5,19 @@ export function formatTime(min: number) {
 
   return `${hours ? `${hours}h` : ''} ${leftMin}min`
 }
+
+export function debounce(func, delay = 250) {
+  let timer = null
+
+  return () => {
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
+    const context = this
+    // eslint-disable-next-line prefer-rest-params
+    const args = arguments
+
+    clearTimeout(timer)
+    timer = setTimeout(() => {
+      func.apply(context, args)
+    }, delay)
+  }
+}

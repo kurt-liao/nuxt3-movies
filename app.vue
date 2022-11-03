@@ -3,12 +3,18 @@ useHead({
   htmlAttrs: {
     lang: 'en',
   },
-  title: 'Nuxt Movies',
-  titleTemplate: title => title !== 'Nuxt Movies' ? `${title} - Nuxt Movies` : title,
+  title: 'Nuxt3 Movies',
+  titleTemplate: title => title !== 'Nuxt3 Movies' ? `${title} - Nuxt3 Movies` : title,
   meta: [{
     name: 'description',
     content: 'The movies collection built with Nuxt3 & TMDB',
   }],
+  link: [
+    { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+    { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
+    { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
+    { rel: 'manifest', href: '/site.webmanifest' },
+  ],
 })
 </script>
 
