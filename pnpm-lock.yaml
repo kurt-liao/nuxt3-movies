@@ -2,7 +2,6 @@ lockfileVersion: 5.4
 
 specifiers:
   '@antfu/eslint-config': ^0.27.0
-  '@heroicons/vue': ^2.0.12
   '@iconify/vue': ^4.0.0
   '@kurtliao/vue-infinite-scroll': ^0.0.6
   '@nuxtjs/tailwindcss': ^6.1.1
@@ -17,7 +16,6 @@ specifiers:
 
 devDependencies:
   '@antfu/eslint-config': 0.27.0_wyqvi574yv7oiwfeinomdzmc3m
-  '@heroicons/vue': 2.0.12
   '@iconify/vue': 4.0.0
   '@kurtliao/vue-infinite-scroll': 0.0.6
   '@nuxtjs/tailwindcss': 6.1.1
@@ -473,12 +471,6 @@ packages:
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
       - supports-color
-    dev: true
-
-  /@heroicons/vue/2.0.12:
-    resolution: {integrity: sha512-ypuQl/Wei7BoShO65AdRVikXDaSt6hJBRuKs2pVd/6HvxfEz18oXraH+J5G/QPIwObMEVhMb6nkOs9l3WZv/gA==}
-    peerDependencies:
-      vue: '>= 3'
     dev: true
 
   /@humanwhocodes/config-array/0.11.6:
