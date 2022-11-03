@@ -7,7 +7,40 @@ useHead({
   titleTemplate: title => title !== 'Nuxt3 Movies' ? `${title} - Nuxt3 Movies` : title,
   meta: [{
     name: 'description',
-    content: 'The movies collection built with Nuxt3 & TMDB',
+    content: 'Discover the popular movies and TV shows here.',
+  }, {
+    name: 'og:url',
+    content: 'https://movies.kurtstories.com',
+  }, {
+    name: 'og:type',
+    content: 'website',
+  }, {
+    name: 'og:title',
+    content: 'Nuxt3 Movies',
+  }, {
+    name: 'og:description',
+    content: 'Discover the popular movies and TV shows here.',
+  }, {
+    name: 'og:image',
+    content: 'https://user-images.githubusercontent.com/32745146/199554060-27b87788-baa9-46cd-9cb6-c34821a2c327.png',
+  }, {
+    name: 'twitter:card',
+    content: 'https://user-images.githubusercontent.com/32745146/199554060-27b87788-baa9-46cd-9cb6-c34821a2c327.png',
+  }, {
+    name: 'twitter:domain',
+    content: 'movies.kurtstories.com',
+  }, {
+    name: 'twitter:url',
+    content: 'https://movies.kurtstories.com',
+  }, {
+    name: 'twitter:title',
+    content: 'Nuxt3 Movies',
+  }, {
+    name: 'twitter:description',
+    content: 'Discover the popular movies and TV shows here.',
+  }, {
+    name: 'twitter:image',
+    content: 'https://user-images.githubusercontent.com/32745146/199554060-27b87788-baa9-46cd-9cb6-c34821a2c327.png',
   }],
   link: [
     { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
