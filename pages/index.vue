@@ -1,37 +1,30 @@
 <script setup lang="ts">
-const { results: movies } = await $fetch('/api/list', {
+import type { MediaType, QueryItem } from '~/types'
+
+const type: MediaType = 'movie'
+const category = 'popular'
+
+const QUERY_ITEMS: QueryItem[] = [{ type: 'movie', title: 'Popular Moives', category: 'popular' }, { type: 'tv', title: 'Popular TV Shows', category: 'popular' }]
+
+const { results } = await $fetch('/api/list', {
   params: {
-    category: 'popular',
-    type: 'movie',
-    page: 1,
+    type,
+    category,
   },
 })
 
-const { results: tvs } = await $fetch('/api/list', {
+const bannerItem = await $fetch('/api/detail', {
   params: {
-    category: 'popular',
-    type: 'tv',
-    page: 1,
+    type,
+    id: results[0].id,
   },
 })
 </script>
 
 <template>
   <div>
-    <MediaBanner type="movie" :item="movies[0]" />
-    <MediaTitle title="Popular Movies" more-link="https://www.google.com" />
-    <ContainerAutoY>
-      <MediaGrid>
-        <MediaCard v-for="item in movies" :key="item.id" type="movie" :item="item" />
-      </MediaGrid>
-    </ContainerAutoY>
-    <MediaTitle title="Popular TV Shows" more-link="https://www.google.com" />
-    <ContainerAutoY>
-      <MediaGrid>
-        <MediaCard v-for="item in tvs" :key="item.id" type="tv" :item="item" />
-      </MediaGrid>
-    </ContainerAutoY>
-
+    <MediaBanner :type="type" :item="bannerItem" />
+    <CarouselAutoQuery v-for="params in QUERY_ITEMS" :key="params.title" :params="params" />
     <Footer />
   </div>
 </template>

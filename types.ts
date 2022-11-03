@@ -121,9 +121,16 @@ export interface Genre {
 export interface QueryItem {
   type: MediaType
   title: string
-  query: string
+  category: string
 }
 
 export interface Credits {
   cast: Media[]
+}
+
+export interface ListType {
+  page: number
+  results: Media[]
+  total_pages: number
+  total_results: number
 }

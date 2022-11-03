@@ -1,16 +1,15 @@
-import type { ListType } from '~/types'
+import type { Media } from '~/types'
 
-export default defineEventHandler(async (event): Promise<ListType> => {
+export default defineEventHandler(async (event): Promise<Media> => {
   const TMDB_API_URL = 'https://api.themoviedb.org/3'
 
-  const { category, type, ...rest } = getQuery(event)
+  const { type, id } = getQuery(event)
   try {
-    return await $fetch(`${type}/${category}`, {
+    return await $fetch(`${type}/${id}`, {
       baseURL: TMDB_API_URL,
       params: {
         api_key: process.env.TMDB_API_KEY,
         language: 'en-US',
-        ...rest,
       },
     })
   }

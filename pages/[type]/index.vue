@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { MediaType } from '~/types'
+import { QUERY_LIST } from '~/constants/list'
 
 definePageMeta({
   key: route => route.fullPath,
@@ -10,56 +11,31 @@ definePageMeta({
 
 const route = useRoute()
 const type = $computed(() => route.params.type as MediaType || 'movie')
-const title = $computed(() => type === 'movie' ? 'Movies' : 'TV Shows')
+const queryParams = QUERY_LIST[type]
 
 useHead({
   title: type === 'movie' ? 'Movies' : 'TV Shows',
 })
 
-const { results: firstContents } = await $fetch('/api/list', {
+const { results } = await $fetch('/api/list', {
   params: {
-    category: 'popular',
     type,
+    category: queryParams[0].category,
   },
 })
 
-const { results: secondContents } = await $fetch('/api/list', {
+const bannerItem = await $fetch('/api/detail', {
   params: {
-    category: 'top_rated',
     type,
-  },
-})
-
-const { results: thirdContents } = await $fetch('/api/list', {
-  params: {
-    category: type === 'movie' ? 'upcoming' : 'airing_today',
-    type,
+    id: results[0].id,
   },
 })
 </script>
 
 <template>
   <div>
-    <MediaBanner :type="type" :item="firstContents[0]" />
-    <MediaTitle :title="`Popular ${title}`" more-link="https://www.google.com" />
-    <ContainerAutoY>
-      <MediaGrid>
-        <MediaCard v-for="item in firstContents" :key="item.id" :type="type" :item="item" />
-      </MediaGrid>
-    </ContainerAutoY>
-    <MediaTitle :title="`Top Rated ${title}`" more-link="https://www.google.com" />
-    <ContainerAutoY>
-      <MediaGrid>
-        <MediaCard v-for="item in secondContents" :key="item.id" :type="type" :item="item" />
-      </MediaGrid>
-    </ContainerAutoY>
-    <MediaTitle :title="type === 'movie' ? `Upcoming ${title}` : `${title} Airing Today`" more-link="https://www.google.com" />
-    <ContainerAutoY>
-      <MediaGrid>
-        <MediaCard v-for="item in thirdContents" :key="item.id" :type="type" :item="item" />
-      </MediaGrid>
-    </ContainerAutoY>
-
+    <MediaBanner :type="type" :item="bannerItem" />
+    <CarouselAutoQuery v-for="params in queryParams" :key="params.title" :params="params" />
     <Footer />
   </div>
 </template>

@@ -29,7 +29,7 @@ defineProps<{
               {{ item.release_date.slice(0, 4) }}
             </div>
             <div v-if="item.runtime" class="opacity-50">
-              {{ item.runtime }}
+              {{ formatTime(item.runtime) }}
             </div>
           </div>
           <p class="mt-2 opacity-80 leading-relaxed overflow-hidden text-xs md:text-base line-clamp-3">
