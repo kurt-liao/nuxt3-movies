@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { MagnifyingGlassIcon } from '@heroicons/vue/24/solid'
+import { Icon } from '@iconify/vue'
 import type { Media } from '~~/types'
 
 interface QueryType {
@@ -87,8 +88,10 @@ watch(() => query.query, () => throttleSearch())
       No item matched keyword: <span class="font-bold">{{ currentKeyword }}</span>. Try other keywords...
     </p>
 
-    <MediaGrid v-if="items.length > 0" v-infinite-scroll="fetch" class="h-5/6 overflow-y-scroll">
+    <MediaGrid v-if="items.length > 0" v-infinite-scroll="fetch" infinite-scroll-delay="1000" class="h-5/6 overflow-y-scroll">
       <MediaCard v-for="item in items" :key="item.id" :item="item" :type="item.media_type" />
     </MediaGrid>
+
+    <Spin v-if="isLoading" class="absolute bottom-10 inset-x-1/2 w-12 h-12" />
   </div>
 </template>
