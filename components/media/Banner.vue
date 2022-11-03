@@ -9,7 +9,7 @@ defineProps<{
 <template>
   <NuxtLink :to="`${item.media_type || type}/${item.id}`" class="block mb-6">
     <div class="relative aspect-[1/1] md:aspect-[3/2] lg:aspect-[25/9] bg-black">
-      <div class="absolute top-0 right-0 left-0 lg:bottom-0 lg:left-1/3 opacity-70">
+      <div class="absolute top-0 right-0 bottom-0 lg:left-1/3 opacity-70">
         <img :src="`https://image.tmdb.org/t/p/w400${item.poster_path}`" width="400" height="225" :alt="item.title || item.name" class="w-full h-full object-cover">
       </div>
       <div class="absolute bottom-0 left-0 top-0 right-0 flex flex-col justify-center p-10 bg-gradient-to-t from-black via-black to-transparent lg:px-24 lg:w-2/3 lg:bg-gradient-to-r">

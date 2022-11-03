@@ -66,7 +66,7 @@ watch(() => query.query, () => throttleSearch())
 </script>
 
 <template>
-  <div class="h-full">
+  <div class="h-full overflow-hidden">
     <div class="flex bg-gray-800 items-center px-6 py-4 gap-3 sticky">
       <Icon icon="heroicons:magnifying-glass-20-solid" class="h-6 w-6 text-2xl opacity-50 bg-transparent" />
       <input v-model="query.query" type="text" class="text-2xl bg-transparent outline-none w-full" placeholder="Type to search...">
@@ -87,7 +87,7 @@ watch(() => query.query, () => throttleSearch())
       No item matched keyword: <span class="font-bold">{{ currentKeyword }}</span>. Try other keywords...
     </p>
 
-    <MediaGrid v-if="items.length > 0" v-infinite-scroll="fetch" infinite-scroll-delay="1000" class="h-5/6 overflow-y-scroll">
+    <MediaGrid v-if="items.length > 0" v-infinite-scroll="fetch" class="h-5/6 overflow-y-scroll">
       <MediaCard v-for="item in items" :key="item.id" :item="item" :type="item.media_type" />
     </MediaGrid>
 

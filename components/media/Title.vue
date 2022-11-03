@@ -6,7 +6,7 @@ const { title = '', moreLink = '' } = defineProps<{
 </script>
 
 <template>
-  <div class="flex px-10 py-3 items-center justify-between">
+  <div class="flex px-4 md:px-10 py-3 items-center justify-between">
     <div class="text-2xl">
       {{ title }}
     </div>
