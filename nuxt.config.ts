@@ -9,8 +9,4 @@ export default defineNuxtConfig({
   css: [
     '~/assets/styles/index.css',
   ],
-  router: {
-    base: '/nuxt3-movies/',
-  },
-  target: 'static',
 })
