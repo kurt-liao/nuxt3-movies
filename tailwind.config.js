@@ -1,4 +1,5 @@
 let colors = require('tailwindcss/colors')
+const plugin = require('tailwindcss/plugin')
 
 // fix tailwind build issue https://github.com/tailwindlabs/tailwindcss/issues/4690
 delete colors.lightBlue
@@ -12,6 +13,22 @@ colors = { ...colors, ...{ transparent: 'transparent' } }
 module.exports = {
   plugins: [
     require('@tailwindcss/line-clamp'),
+    plugin(({ addComponents }) => {
+      addComponents({
+        '.aspect-1-1': {
+          width: '100vw',
+          height: '100vw',
+        },
+        '.aspect-3-2': {
+          width: '100vw',
+          height: '66.666vw',
+        },
+        '.aspect-25-9': {
+          width: '100vw',
+          height: '36vw',
+        },
+      })
+    }),
   ],
   contents: ['./layouts/**/*.vue', './pages/**/*.vue', './components/**/*.vue'],
   theme: {

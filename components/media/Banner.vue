@@ -8,7 +8,7 @@ defineProps<{
 
 <template>
   <NuxtLink :to="`${item.media_type || type}/${item.id}`" class="block mb-6">
-    <div class="relative aspect-[1/1] md:aspect-[3/2] lg:aspect-[25/9] bg-black">
+    <div class="relative bg-black aspect-[1/1] md:aspect-[3/2] lg:aspect-[25/9] aspect-1-1 md:aspect-3-2 lg:aspect-25-9 ">
       <div class="absolute top-0 right-0 bottom-0 lg:left-1/3 opacity-70">
         <img :src="`https://image.tmdb.org/t/p/w400${item.poster_path}`" width="400" height="225" :alt="item.title || item.name" class="w-full h-full object-cover">
       </div>
