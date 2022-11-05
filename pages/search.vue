@@ -91,6 +91,6 @@ watch(() => query.query, () => throttleSearch())
       <MediaCard v-for="item in items" :key="item.id" :item="item" :type="item.media_type" />
     </MediaGrid>
 
-    <Spin v-if="isLoading" class="absolute bottom-10 inset-x-1/2 w-12 h-12" />
+    <Spin v-if="isLoading" class="absolute bottom-5 inset-x-1/2 w-12 h-12" />
   </div>
 </template>
