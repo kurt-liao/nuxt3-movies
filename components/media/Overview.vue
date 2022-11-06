@@ -1,17 +1,33 @@
 <script setup lang="ts">
-import type { Media } from '~~/types'
+import type { Media, MediaType } from '~~/types'
+import { TMDB_IMG_URL } from '~/constants/url'
 
-const props = defineProps<{
+const { item, type } = defineProps<{
   item: Media
+  type: MediaType
 }>()
 </script>
 
 <template>
   <div>
-    <div class="grid grid-cols-[max-content_1fr] max-w-6xl m-auto gap-4">
-      <img :src="`https://image.tmdb.org/t/p/w400${item.poster_path}`" :alt="item.title || item.name" class="w-[18rem] object-cover aspect-[10/16]">
+    <div class="md:grid md:grid-cols-[max-content_1fr] max-w-6xl m-auto gap-8 mb-4 max-w-300">
+      <img :src="`${TMDB_IMG_URL}/w400${item.poster_path}`" :alt="item.title || item.name" class="hidden md:inline w-[18rem] object-cover aspect-[10/16]">
 
-      <MediaDetail class="w-50" :item="item" />
+      <MediaDetail :item="item" :type="type" />
     </div>
+
+    <div class="mb-4 text-3xl">
+      Cast
+    </div>
+    <ContainerScroll>
+      <PersonGrid>
+        <PersonCard
+          v-for="i of item.credits?.cast"
+          :key="i.id"
+          :item="i"
+          class="flex-1 w-1/2"
+        />
+      </PersonGrid>
+    </ContainerScroll>
   </div>
 </template>

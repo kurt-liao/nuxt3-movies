@@ -1,21 +1,24 @@
 <script setup lang="ts">
-import type { Media } from '~~/types'
+import type { Media, MediaType } from '~~/types'
 
 const { item } = defineProps<{
   item: Media
+  type: MediaType
 }>()
 
 const directors = $computed(() => item.credits?.crew.filter(person => person.job === 'Director'))
 </script>
 
 <template>
-  <div class="flex flex-col justify-center gap-6">
+  <div class="flex flex-col justify-center p-4 gap-6">
     <div v-if="item.overview">
       <h2 class="text-4xl mb-4">
         Storyline
       </h2>
 
-      <div class="opacity-50" v-text="item.overview" />
+      <p class="opacity-50">
+        {{ item.overview }}
+      </p>
     </div>
 
     <div class="text-sm opacity-80">
@@ -79,7 +82,7 @@ const directors = $computed(() => item.credits?.crew.filter(person => person.job
           <div class="flex flex-wrap gap-1">
             <NuxtLink
               v-for="genre of item.genres" :key="genre.id"
-              :to="`/genre/${genre.id}/${item.media_type}`"
+              :to="`/genre/${genre.id}/${item.media_type || type}`"
               class="bg-gray-500 hover:bg-gray-300 px-2 py-1 rounded-md text-xs"
             >
               {{ genre.name }}

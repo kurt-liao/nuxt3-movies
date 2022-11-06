@@ -26,12 +26,12 @@ export interface Media {
   status?: string
   genres?: Genre[]
   production_companies?: any[]
-  videos?: {
-    results: Video[]
-  }
   credits?: {
     cast: Person[]
     crew: Person[]
+  }
+  videos?: {
+    results: Video[]
   }
   images?: {
     backdrops: Image[]
@@ -123,11 +123,6 @@ export interface QueryItem {
   title: string
   category: string
 }
-
-export interface Credits {
-  cast: Media[]
-}
-
 export interface ListType {
   page: number
   results: Media[]

@@ -1,16 +1,17 @@
-import type { Media } from '~/types'
+import type { Genre } from '~/types'
 
-export default defineEventHandler(async (event): Promise<Media> => {
+export default defineEventHandler(async (event): Promise<Genre[]> => {
   const TMDB_API_URL = 'https://api.themoviedb.org/3'
 
-  const { type, id } = getQuery(event)
+  const { media, genre, page } = getQuery(event)
   try {
-    return await $fetch(`${type}/${id}`, {
+    return await $fetch(`discover/${media}`, {
       baseURL: TMDB_API_URL,
       params: {
         api_key: process.env.TMDB_API_KEY,
-        include_image_language: 'en',
-        append_to_response: 'videos,credits,images,external_ids,release_dates',
+        language: 'en-US',
+        with_genres: genre,
+        page,
       },
     })
   }

@@ -35,7 +35,7 @@ const [item, recommendations] = await Promise.all([
 <template>
   <div>
     <MediaBanner :type="type" :item="item" />
-    <div class="mt-10 flex justify-center gap-10">
+    <div class="mt-10 flex justify-center gap-2 md:gap-10">
       <button class="uppercase text-2xl opacity-50 pb-2 px-2 transition-all" :class="{ 'opacity-100 border-b-2': activeTab === 'overview' }" @click="activeTab = 'overview'">
         Overview
       </button>
@@ -48,12 +48,12 @@ const [item, recommendations] = await Promise.all([
     </div>
 
     <div class="px-4 md:px-10 mt-12">
-      <component :is="COMPONENTS[activeTab]" :item="item" />
+      <component :is="COMPONENTS[activeTab]" :item="item" :type="type" />
     </div>
 
     <div v-if="recommendations && recommendations.results && recommendations.results.length > 0" class="mt-10">
       <div class="px-4 mb-4 md:px-10 text-3xl">
-        More like this
+        Might be interested
       </div>
       <ContainerScroll>
         <div class="flex gap-2 w-max p-2 px-4 md:px-10">
@@ -61,5 +61,7 @@ const [item, recommendations] = await Promise.all([
         </div>
       </ContainerScroll>
     </div>
+
+    <Footer />
   </div>
 </template>
