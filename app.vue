@@ -7,7 +7,7 @@ useHead({
   titleTemplate: title => title !== 'Nuxt3 Movies' ? `${title} - Nuxt3 Movies` : title,
   meta: [{
     name: 'description',
-    content: 'Discover the popular movies and TV shows here.',
+    content: 'Discover the popular movies and TV shows here.This site was built with Nuxt3 and Tailwindcss.Data provided by TMDB.All of the codes are open source, you can find the whole codes on my Github and don\'t be shy to give me a star.',
   }, {
     name: 'og:url',
     content: 'https://movies.kurtstories.com',
@@ -19,7 +19,7 @@ useHead({
     content: 'Nuxt3 Movies',
   }, {
     name: 'og:description',
-    content: 'Discover the popular movies and TV shows here.',
+    content: 'Discover the popular movies and TV shows here.This site was built with Nuxt3 and Tailwindcss.Data provided by TMDB.All of the codes are open source, you can find the whole codes on my Github and don\'t be shy to give me a star.',
   }, {
     name: 'og:image',
     content: 'https://user-images.githubusercontent.com/32745146/199554060-27b87788-baa9-46cd-9cb6-c34821a2c327.png',
@@ -37,7 +37,7 @@ useHead({
     content: 'Nuxt3 Movies',
   }, {
     name: 'twitter:description',
-    content: 'Discover the popular movies and TV shows here.',
+    content: 'Discover the popular movies and TV shows here.This site was built with Nuxt3 and Tailwindcss.Data provided by TMDB.All of the codes are open source, you can find the whole codes on my Github and don\'t be shy to give me a star.',
   }, {
     name: 'twitter:image',
     content: 'https://user-images.githubusercontent.com/32745146/199554060-27b87788-baa9-46cd-9cb6-c34821a2c327.png',

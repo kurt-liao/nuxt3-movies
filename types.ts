@@ -106,13 +106,6 @@ export interface ExternalIds {
   homepage?: string
 }
 
-export interface PageResult<T> {
-  page: number
-  results: T[]
-  total_pages: number
-  total_results: number
-}
-
 export interface Genre {
   id: number
   name: string
